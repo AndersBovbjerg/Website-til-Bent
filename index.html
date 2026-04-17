@@ -806,17 +806,18 @@
       <div class="form-card">
         <h3>Send en besked</h3>
         <p class="form-sub">Beskriv kort hvad du ønsker behandling for – Bent vender tilbage hurtigst muligt.</p>
+        <form id="contactForm" onsubmit="submitForm(event)">
         <div class="form-row">
           <label for="navn">Navn</label>
-          <input id="navn" type="text" placeholder="Dit fulde navn" autocomplete="name">
+          <input id="navn" name="navn" type="text" placeholder="Dit fulde navn" autocomplete="name" required>
         </div>
         <div class="form-row">
           <label for="tlf">Telefon</label>
-          <input id="tlf" type="tel" placeholder="Dit telefonnummer" autocomplete="tel">
+          <input id="tlf" name="tlf" type="tel" placeholder="Dit telefonnummer" autocomplete="tel" required>
         </div>
         <div class="form-row">
           <label for="behandling">Ønsket behandling</label>
-          <select id="behandling" aria-label="Vælg behandlingstype">
+          <select id="behandling" name="behandling" aria-label="Vælg behandlingstype">
             <option value="">Vælg behandling...</option>
             <option>Akupunktur</option>
             <option>Massage</option>
@@ -826,10 +827,11 @@
         </div>
         <div class="form-row">
           <label for="besked">Beskriv dit ønske</label>
-          <textarea id="besked" placeholder="Hvad ønsker du behandlet? Har du spørgsmål til Bent?"></textarea>
+          <textarea id="besked" name="besked" placeholder="Hvad ønsker du behandlet? Har du spørgsmål til Bent?"></textarea>
         </div>
-        <button class="form-submit" type="button" onclick="submitForm(this)">Send besked</button>
+        <button class="form-submit" type="submit" id="formBtn">Send besked</button>
         <p class="form-note">Dine oplysninger deles kun med Bent og bruges udelukkende til at kontakte dig.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -890,13 +892,30 @@
   }
 
   /* Form */
-  function submitForm(btn) {
-    const navn = document.getElementById('navn').value.trim();
-    const tlf  = document.getElementById('tlf').value.trim();
-    if (!navn || !tlf) { alert('Udfyld venligst navn og telefon.'); return; }
-    btn.textContent = 'Besked sendt – Bent kontakter dig snart';
-    btn.style.background = '#2f5440';
+  async function submitForm(e) {
+    e.preventDefault();
+    const btn = document.getElementById('formBtn');
+    btn.textContent = 'Sender…';
     btn.disabled = true;
+    const data = new FormData(e.target);
+    try {
+      const res = await fetch('https://formspree.io/f/mgorkleo', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        btn.textContent = 'Besked sendt – Bent kontakter dig snart';
+        btn.style.background = '#2f5440';
+        e.target.reset();
+      } else {
+        btn.textContent = 'Noget gik galt – prøv igen';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Noget gik galt – prøv igen';
+      btn.disabled = false;
+    }
   }
 
   /* Chatbot */
