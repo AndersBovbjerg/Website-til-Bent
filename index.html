@@ -59,22 +59,21 @@
     .section-heading em { font-style: italic; color: var(--accent); }
 
     /* ─── NAV ────────────────────────────────────────── */
-    /* Mobile-first: stacked → horizontal on wider screens */
     .nav {
       position: sticky;
       top: 0;
       z-index: 100;
       background: rgba(255,255,255,0.96);
       border-bottom: 1px solid var(--border);
-      padding: 0 1.5rem;
+      padding: 0.75rem 1.5rem;
     }
     .nav-inner {
       max-width: var(--max);
       margin: 0 auto;
-      height: 60px;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      gap: 0.5rem;
     }
     .nav-brand {
       font-family: var(--serif);
@@ -83,9 +82,9 @@
       color: var(--text);
     }
     .nav-links {
-      display: none; /* hidden on mobile */
+      display: flex;
       list-style: none;
-      gap: 2rem;
+      gap: 1.5rem;
       align-items: center;
     }
     .nav-links a {
@@ -104,42 +103,6 @@
       transition: background 0.15s;
     }
     .nav-cta:hover { background: #2f5440 !important; }
-    .nav-burger {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
-    .nav-burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.2s; }
-    .mobile-menu {
-      display: none;
-      flex-direction: column;
-      gap: 0;
-      background: var(--white);
-      border-top: 1px solid var(--border);
-      padding: 0.5rem 0 1rem;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      padding: 0.75rem 1.5rem;
-      font-size: 0.95rem;
-      color: var(--muted);
-      border-bottom: 1px solid var(--border);
-    }
-    .mobile-menu a:last-child { border-bottom: none; }
-    .mobile-menu .mob-cta {
-      margin: 0.75rem 1.5rem 0;
-      background: var(--accent);
-      color: white !important;
-      text-align: center;
-      padding: 0.75rem;
-      border-radius: var(--radius);
-      font-weight: 500;
-      border-bottom: none !important;
-    }
 
     /* ─── HERO ───────────────────────────────────────── */
     /* Mobile: single column, purpose stated clearly above fold */
@@ -588,8 +551,6 @@
     }
 
     @media (min-width: 900px) {
-      .nav-links { display: flex; }
-      .nav-burger { display: none; }
       .hero { padding: 6rem 1.5rem 5rem; }
       .hero-inner { flex-direction: row; align-items: center; gap: 4rem; }
       .hero-text { flex: 1; }
@@ -618,16 +579,7 @@
         <li><a href="#kontakt">Kontakt</a></li>
         <li><a href="#kontakt" class="nav-cta">Book tid</a></li>
       </ul>
-      <button class="nav-burger" aria-label="Åbn menu" onclick="toggleMenu(this)">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobilmenu">
-      <a href="#behandlinger" onclick="closeMobileMenu()">Behandlinger</a>
-      <a href="#om-bent" onclick="closeMobileMenu()">Om Bent</a>
-      <a href="#kontakt" onclick="closeMobileMenu()">Kontakt</a>
-      <a href="#kontakt" class="mob-cta" onclick="closeMobileMenu()">Book en tid</a>
-    </nav>
   </nav>
 </header>
 
@@ -881,16 +833,6 @@
 </div>
 
 <script>
-  /* Mobile menu */
-  function toggleMenu(btn) {
-    const m = document.getElementById('mobileMenu');
-    m.classList.toggle('open');
-    btn.setAttribute('aria-expanded', m.classList.contains('open'));
-  }
-  function closeMobileMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-  }
-
   /* Form */
   async function submitForm(e) {
     e.preventDefault();
