@@ -548,7 +548,7 @@
     <div class="container">
       <div class="section-header">
         <span class="label">Hvad vi tilbyder</span>
-        <h2 id="behandlinger-heading" class="section-heading">Erfaringsbaseret <em>behandlinger</em></h2>
+        <h2 id="behandlinger-heading" class="section-heading">Erfaringsbaserede <em>behandlinger</em></h2>
         <p class="section-desc">Ingen to kroppe er ens - Bent finder ud af hvad der er galt, før han lægger en plan.</p>
       </div>
       <div class="cards">
@@ -602,7 +602,7 @@
   <section class="reviews-section" aria-labelledby="reviews-heading">
     <div class="container">
       <span class="label">anmeldelser</span>
-      <h2 id="reviews-heading" class="section-heading">Det har  <em>patienterne</em> at sige</h2>
+      <h2 id="reviews-heading" class="section-heading">Det har <em>patienterne</em> at sige</h2>
       <div style="display:flex;align-items:center;gap:0.6rem;margin-top:0.75rem;">
         <div style="display:flex;gap:2px;">
           <svg width="15" height="15" viewBox="0 0 24 24" style="fill:#C8A84B;stroke:none;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -673,8 +673,6 @@
             Certificeret akupunktør og massør med dokumenteret uddannelse
           </div>
           <div class="cert-row">
-          </div>
-          <div class="cert-row">
             <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
             Mere end 7 års klinisk erfaring
           </div>
@@ -743,53 +741,6 @@
     </div>
   </div>
 </footer>
-
-
-<script>
-
-  /* Chatbot */
-  function toggleChat() {
-    const w = document.getElementById('chatWin');
-    w.classList.toggle('open');
-    document.getElementById('chatToggle').setAttribute('aria-expanded', w.classList.contains('open'));
-  }
-  function addMsg(txt, cls) {
-    const c = document.getElementById('chatMsgs');
-    const d = document.createElement('div');
-    d.className = 'msg ' + cls;
-    d.textContent = txt;
-    c.appendChild(d);
-    c.scrollTop = c.scrollHeight;
-  }
-  const answers = {
-    'pris':       'Kontakt Bent direkte for prisinformation – ring eller udfyld kontaktformularen på siden.',
-    'kost':       'Kontakt Bent direkte for prisinformation – ring eller udfyld kontaktformularen på siden.',
-    'book':       'Book en tid ved at udfylde kontaktformularen på siden. Bent svarer hurtigt.',
-    'tid':        'Book en tid via kontaktformularen – Bent finder en tid der passer dig.',
-    'akupunktur': 'Akupunktur hjælper bl.a. mod smerter, stress, søvnproblemer, migræne og sportsskader. Har du spørgsmål til en specifik lidelse?',
-    'massage':    'Bent tilbyder terapeutisk massage mod nakkespændinger, rygsmerter og overbelastning. Kan kombineres med akupunktur.',
-    'adresse':    'Klinikken ligger på V. Lybyvej 30, 7800 Skive – i rolige omgivelser ved Lyby.',
-    'parkering':  'Der er gratis parkering direkte ved klinikken.',
-    'åbn':        'Kontakt Bent for at aftale en tid der passer dig – han er fleksibel.',
-  };
-  function getAnswer(msg) {
-    const l = msg.toLowerCase();
-    for (const [k, v] of Object.entries(answers)) { if (l.includes(k)) return v; }
-    return 'Det kan jeg ikke svare på her – skriv til Bent via kontaktformularen, så hjælper han dig personligt.';
-  }
-  function sendChat() {
-    const i = document.getElementById('chatIn');
-    const t = i.value.trim(); if (!t) return;
-    document.getElementById('chatQuick').style.display = 'none';
-    addMsg(t, 'usr'); i.value = '';
-    setTimeout(() => addMsg(getAnswer(t), 'bot'), 550);
-  }
-  function qr(t) {
-    document.getElementById('chatQuick').style.display = 'none';
-    addMsg(t, 'usr');
-    setTimeout(() => addMsg(getAnswer(t), 'bot'), 550);
-  }
-</script>
 
 <!-- Cal element-click embed code begins -->
 <script type="text/javascript">
