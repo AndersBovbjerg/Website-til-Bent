@@ -436,194 +436,6 @@
     .info-row:first-child { border-top: 1px solid var(--border); }
     .info-key { min-width: 90px; color: var(--muted); font-weight: 400; }
     .info-val { color: var(--text); }
-    .form-card {
-      background: var(--off);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem 1.75rem;
-    }
-    .form-card h3 {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 500;
-      margin-bottom: 0.4rem;
-    }
-    .form-card .form-sub { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.6; }
-    .form-row { margin-bottom: 1.1rem; }
-    .form-row label {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-    .form-row input,
-    .form-row select,
-    .form-row textarea {
-      width: 100%;
-      padding: 0.7rem 0.9rem;
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      color: var(--text);
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      outline: none;
-      transition: border-color 0.15s;
-      appearance: none;
-    }
-    .form-row input:focus,
-    .form-row select:focus,
-    .form-row textarea:focus { border-color: var(--accent); }
-    .form-row textarea { resize: vertical; min-height: 90px; }
-    .form-row select { cursor: pointer; }
-    .form-submit {
-      width: 100%;
-      padding: 0.85rem;
-      background: var(--accent);
-      color: white;
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      font-weight: 500;
-      border: none;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: background 0.15s;
-      margin-top: 0.25rem;
-    }
-    .form-submit:hover { background: #2f5440; }
-    .form-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.75rem; text-align: center; }
-    .form-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-top: 1.5rem;
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius);
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
-    }
-    .form-toggle:hover { background: #2f5440; }
-    .form-toggle:active { transform: scale(0.98); }
-    .form-toggle svg { transition: transform 0.3s ease; }
-    .form-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
-    .form-card {
-      overflow: hidden;
-      max-height: 0;
-      opacity: 0;
-      transition: max-height 0.45s ease, opacity 0.35s ease, margin-top 0.35s ease;
-      margin-top: 0;
-    }
-    .form-card.open {
-      max-height: 700px;
-      opacity: 1;
-      margin-top: 2rem;
-    }
-
-    /* ─── CHATBOT ─────────────────────────────────────── */
-    .chat-btn {
-      position: fixed;
-      bottom: 1.5rem; right: 1.5rem;
-      z-index: 200;
-      width: 50px; height: 50px;
-      background: var(--accent);
-      border-radius: 50%;
-      border: none;
-      cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 2px 16px rgba(61,107,79,0.28);
-      transition: background 0.15s, transform 0.15s;
-    }
-    .chat-btn:hover { background: #2f5440; transform: scale(1.06); }
-    .chat-btn svg { stroke: white; fill: none; stroke-width: 1.8; width: 20px; height: 20px; }
-    .chat-win {
-      position: fixed;
-      bottom: 5rem; right: 1.5rem;
-      z-index: 200;
-      width: min(320px, calc(100vw - 3rem));
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .chat-win.open { display: flex; }
-    .chat-head {
-      background: var(--accent);
-      padding: 0.85rem 1rem;
-      display: flex; align-items: center; gap: 0.7rem;
-    }
-    .chat-ava {
-      width: 30px; height: 30px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--serif); font-size: 0.85rem; color: white;
-    }
-    .chat-head-name { font-size: 0.88rem; font-weight: 500; color: white; }
-    .chat-head-sub { font-size: 0.7rem; color: rgba(255,255,255,0.6); }
-    .chat-msgs {
-      padding: 0.85rem;
-      display: flex; flex-direction: column; gap: 0.6rem;
-      max-height: 240px; overflow-y: auto;
-      background: #fafaf8;
-    }
-    .msg {
-      max-width: 88%;
-      padding: 0.55rem 0.8rem;
-      border-radius: 10px;
-      font-size: 0.83rem;
-      line-height: 1.5;
-    }
-    .msg.bot {
-      background: white;
-      border: 1px solid var(--border);
-      color: var(--text);
-      align-self: flex-start;
-      border-bottom-left-radius: 3px;
-    }
-    .msg.usr {
-      background: var(--accent);
-      color: white;
-      align-self: flex-end;
-      border-bottom-right-radius: 3px;
-    }
-    .chat-quick {
-      padding: 0.5rem 0.85rem 0.25rem;
-      display: flex; flex-wrap: wrap; gap: 0.35rem;
-    }
-    .qbtn {
-      font-size: 0.72rem;
-      padding: 0.25rem 0.6rem;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: white;
-      color: var(--muted);
-      cursor: pointer;
-      transition: border-color 0.15s, color 0.15s;
-    }
-    .qbtn:hover { border-color: var(--accent); color: var(--accent); }
-    .chat-foot { display: flex; border-top: 1px solid var(--border); }
-    .chat-input {
-      flex: 1;
-      padding: 0.7rem 0.9rem;
-      font-family: var(--sans);
-      font-size: 0.83rem;
-      border: none; outline: none;
-      background: white;
-      color: var(--text);
-    }
-    .chat-send { padding: 0 0.9rem; background: none; border: none; cursor: pointer; color: var(--accent); font-size: 1.1rem; }
 
     /* ─── FOOTER ──────────────────────────────────────── */
     footer {
@@ -661,7 +473,6 @@
       .about-quote-col { flex: 1; }
       .contact-inner { flex-direction: row; gap: 4rem; align-items: flex-start; }
       .contact-info { flex: 1; }
-      .form-card { flex: 1; }
       .footer-inner { flex-direction: row; justify-content: space-between; align-items: flex-end; }
     }
   </style>
@@ -704,7 +515,7 @@
         <p class="hero-badge">Gratis uforpligtende samtale ved første henvendelse</p>
       </div>
       <div class="hero-visual" role="img" aria-label="Billede af klinikken – tilføjes">
-        <img src="Indgang ved bent.jpg" alt="Indgang til klinikken" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;">
+        <img src="klinik-indgang-lyby.jpg" alt="Indgang til klinikken" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;">
         <div class="hero-visual-tag">V. Lybyvej 30, Skive</div>
       </div>
     </div>
@@ -737,7 +548,7 @@
     <div class="container">
       <div class="section-header">
         <span class="label">Hvad vi tilbyder</span>
-        <h2 id="behandlinger-heading" class="section-heading">Behandlinger med <em>dokumenteret effekt</em></h2>
+        <h2 id="behandlinger-heading" class="section-heading">Erfaringsbaseret <em>behandlinger</em></h2>
         <p class="section-desc">Ingen to kroppe er ens. Bent finder ud af hvad der er galt, før han lægger en plan.</p>
       </div>
       <div class="cards">
@@ -868,8 +679,7 @@
             Mere end 7 års klinisk erfaring
           </div>
           <div class="cert-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Behandler ud fra videnskabeligt dokumenterede metoder
+
           </div>
         </div>
         <div class="stat-grid" style="margin-top:2rem;" aria-label="Nøgletal">
@@ -891,13 +701,13 @@
   <section class="contact-section" id="kontakt" aria-labelledby="kontakt-heading">
     <div class="contact-inner container">
       <div class="contact-info">
-        <span class="label">Kom i kontakt</span>
-        <h2 id="kontakt-heading" class="section-heading">Book en <em>tid</em></h2>
-        <p>Ring eller send en besked – Bent svarer som regel samme dag og finder en tid der passer til dig og din situation.</p>
+        <span class="label">Kontakt</span>
+        <h2 id="kontakt-heading" class="section-heading">Kontakt <em>Bent</em></h2>
+        <p>Ring eller send en besked – Så finder vi en tid der passer til dig og din situation.</p>
         <div class="info-rows" role="list">
           <div class="info-row" role="listitem">
             <span class="info-key">Adresse</span>
-            <span class="info-val">V. Lybyvej 30, 7800 Skive</span>
+            <span class="info-val">V. Lybyvej 30, Skive</span>
           </div>
           <div class="info-row" role="listitem">
             <span class="info-key">Telefon</span>
@@ -912,40 +722,6 @@
             <span class="info-val">Gratis parkering ved klinikken</span>
           </div>
         </div>
-        <button class="form-toggle" id="formToggle" onclick="toggleForm()" aria-expanded="false">
-          Foretrækker du at skrive? Send en besked
-          <svg id="formChevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-        </button>
-      </div>
-      <div class="form-card" id="formCard">
-        <h3>Send en besked</h3>
-        <p class="form-sub">Beskriv kort hvad du ønsker behandling for – Bent vender tilbage hurtigst muligt.</p>
-        <form id="contactForm" onsubmit="submitForm(event)">
-        <div class="form-row">
-          <label for="navn">Navn</label>
-          <input id="navn" name="navn" type="text" placeholder="Dit fulde navn" autocomplete="name" required>
-        </div>
-        <div class="form-row">
-          <label for="tlf">Telefon</label>
-          <input id="tlf" name="tlf" type="tel" placeholder="Dit telefonnummer" autocomplete="tel" required>
-        </div>
-        <div class="form-row">
-          <label for="behandling">Ønsket behandling</label>
-          <select id="behandling" name="behandling" aria-label="Vælg behandlingstype">
-            <option value="">Vælg behandling...</option>
-            <option>Akupunktur</option>
-            <option>Massage</option>
-            <option>Kombinationsbehandling</option>
-            <option>Ved ikke endnu</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label for="besked">Beskriv dit ønske</label>
-          <textarea id="besked" name="besked" placeholder="Hvad ønsker du behandlet? Har du spørgsmål til Bent?"></textarea>
-        </div>
-        <button class="form-submit" type="submit" id="formBtn">Send besked</button>
-        <p class="form-note">Dine oplysninger deles kun med Bent og bruges udelukkende til at kontakte dig.</p>
-        </form>
       </div>
     </div>
   </section>
@@ -962,75 +738,14 @@
       </div>
     </div>
     <div class="footer-meta" style="text-align:right;">
-      © 2025 Lyby Akupunktur v/ Bent Thomsen
+      © 2026 Lyby Akupunktur v/ Bent Thomsen<br>
+      <a href="privatliv.html" style="color:inherit; opacity:0.7; text-decoration:underline;">Privatlivspolitik</a>
     </div>
   </div>
 </footer>
 
-<!-- ─── CHATBOT ─── -->
-<button class="chat-btn" id="chatToggle" aria-label="Åbn chat" onclick="toggleChat()">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-</button>
-
-<div class="chat-win" id="chatWin" role="dialog" aria-label="Chat med Lyby Akupunktur">
-  <div class="chat-head">
-    <div class="chat-ava" aria-hidden="true">BT</div>
-    <div>
-      <div class="chat-head-name">Lyby Akupunktur</div>
-      <div class="chat-head-sub">Svarer normalt inden for få timer</div>
-    </div>
-  </div>
-  <div class="chat-msgs" id="chatMsgs" aria-live="polite">
-    <div class="msg bot">Hej! Jeg kan hjælpe dig med spørgsmål om behandlinger eller booking.</div>
-  </div>
-  <div class="chat-quick" id="chatQuick">
-    <button class="qbtn" onclick="qr('Hvad koster en behandling?')">Hvad koster det?</button>
-    <button class="qbtn" onclick="qr('Hvad hjælper akupunktur mod?')">Hvad hjælper det mod?</button>
-    <button class="qbtn" onclick="qr('Hvordan booker jeg en tid?')">Book en tid</button>
-  </div>
-  <div class="chat-foot">
-    <input class="chat-input" id="chatIn" type="text" placeholder="Skriv en besked..." aria-label="Skriv en besked" onkeydown="if(event.key==='Enter')sendChat()">
-    <button class="chat-send" onclick="sendChat()" aria-label="Send">↑</button>
-  </div>
-</div>
 
 <script>
-  /* Form */
-  async function submitForm(e) {
-    e.preventDefault();
-    const btn = document.getElementById('formBtn');
-    btn.textContent = 'Sender…';
-    btn.disabled = true;
-    const data = new FormData(e.target);
-    try {
-      const res = await fetch('https://formspree.io/f/mgorkleo', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        btn.textContent = 'Besked sendt – Bent kontakter dig snart';
-        btn.style.background = '#2f5440';
-        e.target.reset();
-      } else {
-        btn.textContent = 'Noget gik galt – prøv igen';
-        btn.disabled = false;
-      }
-    } catch {
-      btn.textContent = 'Noget gik galt – prøv igen';
-      btn.disabled = false;
-    }
-  }
-
-  /* Form toggle */
-  function toggleForm() {
-    const card = document.getElementById('formCard');
-    const btn = document.getElementById('formToggle');
-    const isOpen = card.classList.contains('open');
-    card.classList.toggle('open', !isOpen);
-    btn.setAttribute('aria-expanded', !isOpen);
-    if (!isOpen) setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
-  }
 
   /* Chatbot */
   function toggleChat() {
