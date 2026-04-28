@@ -197,6 +197,16 @@
       font-size: 0.78rem;
       color: var(--muted);
       font-weight: 500;
+      z-index: 1;
+    }
+    .hero-visual .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+      transition: opacity 0.8s ease;
     }
 
     /* ─── TRUST BAR ──────────────────────────────────── */
@@ -515,8 +525,11 @@
         </div>
         <p class="hero-badge">Gratis uforpligtende samtale ved første henvendelse</p>
       </div>
-      <div class="hero-visual" role="img" aria-label="Billede af klinikken – tilføjes">
-        <img id="hero-img" src="klinik-indgang-lyby.jpg" alt="Indgang til klinikken" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;transition:opacity 0.8s ease;">
+      <div class="hero-visual" role="img" aria-label="Billede af klinikken">
+        <img class="slide" src="klinik-indgang-lyby.jpg"    alt="Indgang til klinikken"  style="opacity:1;">
+        <img class="slide" src="Klinik-Udenfor-Indgang.jpg" alt="Klinikken udenfor"       style="opacity:0;">
+        <img class="slide" src="Indenfor-Klinikken.jpg"     alt="Inde i klinikken"        style="opacity:0;">
+        <img class="slide" src="Klinik-Statue.jpg"          alt="Statue ved klinikken"    style="opacity:0;">
         <div class="hero-visual-tag">V. Lybyvej 30, 7800 Skive</div>
       </div>
     </div>
@@ -752,22 +765,12 @@
 <!-- Cal element-click embed code ends -->
 
 <script>
-  const heroImages = [
-    { src: 'klinik-indgang-lyby.jpg',    alt: 'Indgang til klinikken' },
-    { src: 'Klinik-Udenfor-Indgang.jpg', alt: 'Klinikken udenfor' },
-    { src: 'Indenfor-Klinikken.jpg',     alt: 'Inde i klinikken' },
-    { src: 'Klinik-Statue.jpg',          alt: 'Statue ved klinikken' },
-  ];
+  const slides = document.querySelectorAll('.hero-visual .slide');
   let current = 0;
-  const img = document.getElementById('hero-img');
   setInterval(() => {
-    current = (current + 1) % heroImages.length;
-    img.style.opacity = '0';
-    setTimeout(() => {
-      img.src = heroImages[current].src;
-      img.alt = heroImages[current].alt;
-      img.style.opacity = '1';
-    }, 800);
+    slides[current].style.opacity = '0';
+    current = (current + 1) % slides.length;
+    slides[current].style.opacity = '1';
   }, 5000);
 </script>
 
