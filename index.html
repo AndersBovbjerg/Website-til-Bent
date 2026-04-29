@@ -438,6 +438,13 @@
     }
     .contact-info {}
     .contact-info p { font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-top: 0.75rem; max-width: 420px; }
+    .contact-map {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .contact-map iframe { width: 100%; height: 100%; display: block; border: 0; }
     .info-rows { margin-top: 2rem; display: flex; flex-direction: column; }
     .info-row {
       display: flex;
@@ -486,6 +493,7 @@
       .about-quote-col { flex: 1; }
       .contact-inner { flex-direction: row; gap: 4rem; align-items: flex-start; }
       .contact-info { flex: 1; }
+      .contact-map { flex: 1; }
       .footer-inner { flex-direction: row; justify-content: space-between; align-items: flex-end; }
     }
   </style>
@@ -742,6 +750,15 @@
             <span class="info-val">Gratis parkering ved klinikken</span>
           </div>
         </div>
+      </div>
+      <div class="contact-map">
+        <iframe
+          src="https://www.google.com/maps?q=V.+Lybyvej+30,+7800+Skive,+Danmark&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Lyby Akupunktur – V. Lybyvej 30, 7800 Skive">
+        </iframe>
       </div>
     </div>
   </section>
