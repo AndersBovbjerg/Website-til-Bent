@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mød Bent Thomsen – certificeret akupunktør og massør bag Lyby Akupunktur i Skive.">
+  <meta name="robots" content="index, follow">
+  <title>Om Bent Thomsen – Lyby Akupunktur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────── */
+    :root {
+      --white:   #FFFFFF;
+      --off:     #F9F7F4;
+      --stone:   #EDE9E3;
+      --text:    #1A1917;
+      --muted:   #706C65;
+      --accent:  #3D6B4F;
+      --accent2: #C8B89A;
+      --border:  #DDD9D2;
+      --radius:  6px;
+      --max:     1100px;
+      --sans:    'Inter', sans-serif;
+      --serif:   'Lora', serif;
+    }
+
+    /* ─── RESET ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── UTILITIES ──────────────────────────────────── */
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 1.5rem; }
+    .label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.75rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text);
+    }
+    .section-heading em { font-style: italic; color: var(--accent); }
+
+    /* ─── NAV ────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+    }
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--accent); font-weight: 500; }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white) !important;
+      padding: 0.5rem 1.1rem;
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: 0.85rem;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: #2f5440 !important; }
+
+    /* ─── PAGE HEADER ────────────────────────────────── */
+    .page-header {
+      padding: 7rem 1.5rem 3rem;
+      background: var(--off);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .page-header .section-heading { margin-top: 0.5rem; }
+
+    /* ─── OM BENT ─────────────────────────────────────── */
+    .about-section {
+      background: var(--off);
+      padding: 4rem 1.5rem 5rem;
+    }
+    .about-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+    .about-text-col {}
+    .about-text-col p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-top: 1rem; }
+    .about-certs {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+    .cert-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .cert-row svg { flex-shrink: 0; margin-top: 2px; stroke: var(--accent); fill: none; stroke-width: 2; }
+    .about-quote-col {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .blockquote {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--text);
+    }
+    .blockquote-attr {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .stat-cell {
+      background: var(--off);
+      padding: 1.25rem 1rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-lbl { font-size: 0.72rem; color: var(--muted); margin-top: 0.3rem; }
+
+    /* ─── BILLEDGALLERI ──────────────────────────────── */
+    .gallery-section {
+      padding: 4rem 1.5rem 5rem;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+    .gallery-grid {
+      max-width: var(--max);
+      margin: 2rem auto 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .gallery-item figure {
+      margin: 0;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      display: block;
+    }
+    .gallery-item figcaption {
+      margin-top: 0.75rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .gallery-item figcaption strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    @media (min-width: 640px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item img { height: 260px; }
+    }
+    @media (min-width: 900px) {
+      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+      .gallery-item img { height: 240px; }
+    }
+
+    /* ─── BTN ────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      border: none;
+      transition: background 0.15s, color 0.15s, transform 0.1s;
+    }
+    .btn:active { transform: scale(0.98); }
+    .btn-green { background: var(--accent); color: white; }
+    .btn-green:hover { background: #2f5440; }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    footer {
+      background: var(--text);
+      color: rgba(249,247,244,0.45);
+      padding: 2.5rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: rgba(249,247,244,0.8);
+    }
+    .footer-meta { font-size: 0.78rem; line-height: 1.8; }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (min-width: 900px) {
+      .about-inner { flex-direction: row; gap: 4rem; align-items: flex-start; }
+      .about-text-col { flex: 1; }
+      .about-quote-col { flex: 1; }
+      .footer-inner { flex-direction: row; justify-content: space-between; align-items: flex-end; }
+    }
+  </style>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<header>
+  <nav class="nav" aria-label="Primær navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand" aria-label="Lyby Akupunktur – hjem">Lyby Akupunktur</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html#behandlinger">Behandlinger</a></li>
+        <li><a href="om-bent.html" class="active">Om Bent</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- ─── PAGE HEADER ─── -->
+  <div class="page-header">
+    <div class="container">
+      <span class="label">Om behandleren</span>
+      <h1 class="section-heading">Mød <em>Bent Thomsen</em></h1>
+    </div>
+  </div>
+
+  <!-- ─── OM BENT ─── -->
+  <section class="about-section" aria-labelledby="om-heading">
+    <div class="about-inner container">
+      <div class="about-text-col">
+        <p>Bent Thomsen har drevet Lyby Akupunktur siden 2018 og behandler med dyb faglig viden og personlig omsorg. Han kombinerer klassisk kinesisk medicin med moderne forståelse af kroppens anatomi.</p>
+        <p>Klinikken ligger i Lyby, tæt på Skive – et sted hvor du trygt kan slappe af og fokusere på dit helbred.</p>
+        <div class="about-certs" aria-label="Kvalifikationer">
+          <div class="cert-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Certificeret akupunktør og massør med dokumenteret uddannelse
+          </div>
+          <div class="cert-row">
+            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Mere end 7 års klinisk erfaring
+          </div>
+        </div>
+        <div class="stat-grid" style="margin-top:2rem;" aria-label="Nøgletal">
+          <div class="stat-cell"><div class="stat-num">+7</div><div class="stat-lbl">Års erfaring</div></div>
+          <div class="stat-cell"><div class="stat-num">2</div><div class="stat-lbl">Behandlingsformer</div></div>
+          <div class="stat-cell"><div class="stat-num">1:1</div><div class="stat-lbl">Altid personligt</div></div>
+        </div>
+        <div style="margin-top:2rem;">
+          <a data-cal-link="anders-huu7o3/30min" data-cal-namespace="30min" data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true","theme":"light"}' class="btn btn-green" style="cursor:pointer;">
+            Book en tid
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="about-quote-col">
+        <blockquote class="blockquote">
+          God behandling handler om at lytte til kroppen, forstå problemet og arbejde målrettet med det.
+        </blockquote>
+        <p class="blockquote-attr">— Bent Thomsen, Lyby Akupunktur</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BILLEDGALLERI ─── -->
+  <section class="gallery-section" aria-labelledby="galleri-heading">
+    <div class="container">
+      <span class="label">Klinikken</span>
+      <h2 id="galleri-heading" class="section-heading">Se <em>stedet</em></h2>
+    </div>
+    <div class="gallery-grid container">
+      <div class="gallery-item">
+        <figure>
+          <img src="Bent.jpg" alt="Bent Thomsen">
+          <figcaption>
+            <strong>Bent Thomsen</strong>
+            Behandler og indehaver af Lyby Akupunktur siden 2018.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="gallery-item">
+        <figure>
+          <img src="klinik-indgang-lyby.jpg" alt="Indgangen til klinikken">
+          <figcaption>
+            <strong>Indgangen</strong>
+            Klinikken ligger på V. Lybyvej 30 – let at finde med gratis parkering.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="gallery-item">
+        <figure>
+          <img src="Klinik-Udenfor-Indgang.jpg" alt="Klinikken set udefra">
+          <figcaption>
+            <strong>Klinikken udefra</strong>
+            Et roligt og indbydende sted tæt på Skive, omgivet af natur.
+          </figcaption>
+        </figure>
+      </div>
+      <div class="gallery-item">
+        <figure>
+          <img src="Indenfor-Klinikken.jpg" alt="Inde i klinikken">
+          <figcaption>
+            <strong>Behandlingsrummet</strong>
+            Et stille og behageligt rum, indrettet til at du kan slappe helt af.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Lyby Akupunktur</div>
+      <div class="footer-meta" style="margin-top:0.5rem;">
+        v/ Bent Thomsen · CVR 81478457<br>
+        V. Lybyvej 30, 7800 Skive
+      </div>
+    </div>
+    <div class="footer-meta" style="text-align:right;">
+      © 2026 Lyby Akupunktur v/ Bent Thomsen<br>
+      <a href="privatliv.html" style="color:inherit; opacity:0.7; text-decoration:underline;">Privatlivspolitik</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Cal element-click embed code begins -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "init");
+  Cal("init", "30min", {origin:"https://app.cal.eu"});
+  Cal.ns["30min"]("ui", {"theme":"light","cssVarsPerTheme":{"light":{"cal-brand":"#3d6b4f"},"dark":{"cal-brand":"#3d6b4f"}},"hideEventTypeDetails":false,"layout":"month_view"});
+</script>
+<!-- Cal element-click embed code ends -->
+
+</body>
+</html>

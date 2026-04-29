@@ -510,7 +510,7 @@
       <a href="#" class="nav-brand" aria-label="Lyby Akupunktur – hjem">Lyby Akupunktur</a>
       <ul class="nav-links" role="list">
         <li><a href="#behandlinger">Behandlinger</a></li>
-        <li><a href="#om-bent">Om Bent</a></li>
+        <li><a href="om-bent.html">Om Bent</a></li>
         <li><a href="#kontakt">Kontakt</a></li>
       </ul>
     </div>
@@ -520,10 +520,7 @@
 <!-- ─── HERO ─── -->
 <main>
   <section class="hero" aria-labelledby="hero-heading">
-    <img class="slide" src="klinik-indgang-lyby.jpg"    alt="Indgang til klinikken"  style="opacity:1;">
-    <img class="slide" src="Klinik-Udenfor-Indgang.jpg" alt="Klinikken udenfor"       style="opacity:0;">
-    <img class="slide" src="Indenfor-Klinikken.jpg"     alt="Inde i klinikken"        style="opacity:0;">
-    <img class="slide" src="Klinik-Statue.jpg"          alt="Statue ved klinikken"    style="opacity:0;">
+    <img class="slide" src="Klinik-Statue.jpg" alt="Statue ved klinikken">
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="hero-content">
       <div class="container">
@@ -543,12 +540,6 @@
         </div>
         <p class="hero-badge">Gratis uforpligtende samtale ved første henvendelse</p>
       </div>
-    </div>
-    <div class="slide-dots" aria-hidden="true">
-      <div class="slide-dot active"></div>
-      <div class="slide-dot"></div>
-      <div class="slide-dot"></div>
-      <div class="slide-dot"></div>
     </div>
   </section>
 
@@ -690,42 +681,6 @@
     </div>
   </section>
 
-  <!-- ─── OM BENT ─── -->
-  <section class="about-section" id="om-bent" aria-labelledby="om-heading">
-    <div class="about-inner container">
-      <div class="about-text-col">
-        <span class="label">Om behandleren</span>
-        <h2 id="om-heading" class="section-heading">Mød <em>Bent Thomsen</em></h2>
-        <p>Bent Thomsen har drevet Lyby Akupunktur siden 2018 og behandler med dyb faglig viden og personlig omsorg. Han kombinerer klassisk kinesisk medicin med moderne forståelse af kroppens anatomi.</p>
-        <p>Klinikken ligger i Lyby, tæt på Skive – et sted hvor du trygt kan slappe af og fokusere på dit helbred.</p>
-        <div class="about-certs" aria-label="Kvalifikationer">
-          <div class="cert-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Certificeret akupunktør og massør med dokumenteret uddannelse
-          </div>
-          <div class="cert-row">
-            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Mere end 7 års klinisk erfaring
-          </div>
-          <div class="cert-row">
-
-          </div>
-        </div>
-        <div class="stat-grid" style="margin-top:2rem;" aria-label="Nøgletal">
-          <div class="stat-cell"><div class="stat-num">+7</div><div class="stat-lbl">Års erfaring</div></div>
-          <div class="stat-cell"><div class="stat-num">2</div><div class="stat-lbl">Behandlingsformer</div></div>
-          <div class="stat-cell"><div class="stat-num">1:1</div><div class="stat-lbl">Altid personligt</div></div>
-        </div>
-      </div>
-      <div class="about-quote-col">
-        <blockquote class="blockquote">
-          God behandling handler om at lytte til kroppen, forstå problemet og arbejde målrettet med det.
-        </blockquote>
-        <p class="blockquote-attr">— Bent Thomsen, Lyby Akupunktur</p>
-      </div>
-    </div>
-  </section>
-
   <!-- ─── KONTAKT ─── -->
   <section class="contact-section" id="kontakt" aria-labelledby="kontakt-heading">
     <div class="contact-inner container">
@@ -788,17 +743,6 @@
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
-  // Hero slideshow med dots
-  const slides = document.querySelectorAll('.hero .slide');
-  const dots   = document.querySelectorAll('.slide-dot');
-  let current  = 0;
-  setInterval(() => {
-    slides[current].style.opacity = '0';
-    dots[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].style.opacity = '1';
-    dots[current].classList.add('active');
-  }, 5000);
 </script>
 
 </body>
