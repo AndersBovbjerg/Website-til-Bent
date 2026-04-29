@@ -179,7 +179,7 @@
     }
     .hero-visual-tag {
       position: absolute;
-      bottom: 1rem; left: 1rem;
+      top: 1rem; left: 1rem;
       background: white;
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -477,7 +477,7 @@
 
     @media (min-width: 900px) {
       .hero { padding: 6rem 1.5rem 5rem; }
-      .hero-inner { flex-direction: row; align-items: center; gap: 4rem; }
+      .hero-inner { flex-direction: row; align-items: flex-start; gap: 4rem; }
       .hero-text { flex: 1; }
       .hero-visual { flex: 1; max-width: 480px; }
       .cards { grid-template-columns: repeat(3, 1fr); }
