@@ -113,6 +113,21 @@
       text-align: center;
     }
     .page-header .section-heading { margin-top: 0.5rem; }
+    .page-header-img {
+      margin: 2rem auto 0;
+      max-width: 380px;
+    }
+    .page-header-img img {
+      width: 100%;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    .page-header-img figcaption {
+      margin-top: 0.65rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
 
     /* ─── OM BENT ─────────────────────────────────────── */
     .about-section {
@@ -231,7 +246,7 @@
       .gallery-item img { height: 260px; }
     }
     @media (min-width: 900px) {
-      .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(3, 1fr); }
       .gallery-item img { height: 240px; }
     }
 
@@ -305,6 +320,10 @@
     <div class="container">
       <span class="label">Om behandleren</span>
       <h1 class="section-heading">Mød <em>Bent Thomsen</em></h1>
+      <figure class="page-header-img">
+        <img src="Bent.jpg" alt="Bent Thomsen">
+
+      </figure>
     </div>
   </div>
 
@@ -352,15 +371,6 @@
       <h2 id="galleri-heading" class="section-heading">Se <em>stedet</em></h2>
     </div>
     <div class="gallery-grid container">
-      <div class="gallery-item">
-        <figure>
-          <img src="Bent.jpg" alt="Bent Thomsen">
-          <figcaption>
-            <strong>Bent Thomsen</strong>
-            Behandler og indehaver af Lyby Akupunktur siden 2018.
-          </figcaption>
-        </figure>
-      </div>
       <div class="gallery-item">
         <figure>
           <img src="klinik-indgang-lyby.jpg" alt="Indgangen til klinikken">
